@@ -29,7 +29,7 @@ class ContactoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validacion de datos del form
         $request->validate([
             'name' => ['required','max:50'],
             'email' => ['required','email'],
@@ -52,7 +52,8 @@ class ContactoController extends Controller
             'message' => $request->message
         ];
         Mail::to('mpucheta1977@gmail.com')->send(new \App\Mail\Contactanos($details));
-                
+        
+        //mensaje cuando se graba y se envia el mail
         return response()->json([
             'mensaje' => 'Se cargaron correctamente los datos del Contacto y se envio el mail',
             'data' => $persona,
