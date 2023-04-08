@@ -51,7 +51,9 @@ class ContactoController extends Controller
             'phone' => $request->phone,
             'message' => $request->message
         ];
-        Mail::to('mpucheta1977@gmail.com')->send(new \App\Mail\Contactanos($details));
+        Mail::to('m.pucheta@hotmail.com')->send(new \App\Mail\Contactanos($details));
+
+        //Mail::to('mpucheta1977@gmail.com')->send(new \App\Mail\Contactanos($details));
         
         //mensaje cuando se graba y se envia el mail
         return response()->json([
